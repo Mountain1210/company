@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Protypal</title>
+
+<script>
+
+Function.prototype.method=function(name,func){
+    if(!this.prototype[name]){
+        this.prototype[name]=func;
+    }
+}
+
+//superior是利用反射机制获取js父类的方法
+Object.method('superior',function(name){
+    var that=this;
+    var method=that[name];
+    return function(){
+        return method.apply(that,arguments);
+    }
+});
+
+var mammal=function(spec){
+    var that={};
+    that.get_name=function(){
+        return spec.name;
+    }
+    that.says=function(){
+        return spec.saying || '';
+    }
+    return that;
+}
+
+
+var cat=function(spec){
+    spec.saying=spec.saying||'meow';
+    var that=mammal(spec);
+    that.purr=function(){
+        var i, s='';
+        for(i=0; i<n; i+=1){
+            if(s){
+                s+='-';
+            }
+            s+='r';
+        }
+        return s;
+    }
+    that.get_name=function(){
+        // console.log(that.says());
+        return '('+that.says()+')  ===  '+spec.name+' === ('+that.says()+')';
+    }
+    return that;
+}
+
+// var mycat=cat({name:'Henrietta'});
+
+var coolcat=function(spec){
+    // console.log(spec);
+    var that=cat(spec);
+    var super_get_name=that.superior('get_name'); 
+    that.get_name=function(n){
+        return 'like'+super_get_name()+'baby';
+    }
+    // console.log(that);
+    // that.prototype.demo=function(){
+    //     alert('11111');
+    // }
+    return that;
+}
+console.log(coolcat);
+var da=coolcat;
+console.log(da);
+// var myCoolCat=coolcat({name:'bix',saying:function(){return 'aaa'}});
+// var myCoolCat=coolcat({name:'bix',saying:(function(){return 'aaa'})()});//这个返回一个aaa字符串
+// var name=myCoolCat.get_name();
+var mycc=new coolcat({name:'bixc',saying:function(){return 'aaa'}});
+var mycc2=new coolcat({name:'bixc',saying:function(){return 'aaa'}});
+coolcat.prototype.demo=function(){
+    console.log(333333);
+}
+var mycc3=new coolcat({name:'bixc',saying:function(){return 'aaa'}});
+// console.log(mycc3==mycc2);
+// mycc3.prototype.demo=function(){
+//     console.log(1111);
+// }
+// console.log(mycc==mycc2);
+
+
+// console.log(coolcat);
+// console.dir(mycc);
+console.log(mycc3);
+// console.log(mycc.get_name())
+// console.log(name);
+
+</script>
+
+</head>
+
+
+<body>
+
+</body>
+
+</html>

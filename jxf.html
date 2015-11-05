@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>关闭</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">    
+//     setTimeout(function(){
+// // //         window.opener = null;
+// // // window.open('','_self');
+// // // window.close(this);
+// //     // var href = window.location.href;  
+// //     // window.open(href,"_self","");  
+// //     // window.close(this);
+//      window.open("about:blank","_self").close()   
+//     // window.open("about:blank","_self");
+//     // var opened=window.open('about:blank','_self');
+//     // opened.close();
+// // window.open('','_parent','');
+// // window.opener = window;
+// // window.close(); 
+//     },300);
+
+
+
+/*setTimeout( function(){window.opener.close()
+}   ,300);
+*/
+
+// var openedWindow;
+
+// function openWindow()
+// {
+//   openedWindow = window.open('moreinfo.htm');
+// }
+
+// console.log(openedWindow);
+// function closeOpenedWindow()
+// {
+//   openedWindow.close();
+// }
+// closeOpenedWindow();
+</script>
+
+<script type="text/javascript">
+// function closeWP() {
+//     alert(333)
+//  var Browser = navigator.appName;
+//  var indexB = Browser.indexOf('Explorer');
+
+//  if (indexB > 0) {
+//     var indexV = navigator.userAgent.indexOf('MSIE') + 5;
+//     var Version = navigator.userAgent.substring(indexV, indexV + 1);
+
+//     if (Version >= 7) {
+//         window.open('', '_self', '');
+//         window.close();
+//     }
+//     else if (Version == 6) {
+//         window.opener = null;
+//         window.close();
+//     }
+//     else {
+//         window.opener = '';
+//         window.close();
+//     }
+
+//  }
+// else {
+//     window.close();
+//  }
+// }
+// closeWP();
+setTimeout(function(){
+    window.open(' ','_self');
+    window.opener.close(); 
+    },3000)</script>
+</html>
