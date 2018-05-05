@@ -48,21 +48,21 @@ return that;
 
 var mammal=function(spec){
 
-var that={};
+    var that={};
 
-that.get_name=function(){
+    that.get_name=function(){
 
-return spec.name;
+        return spec.name;
 
-};
+    };
 
-that.says=function(){
+    that.says=function(){
 
-return spec.saying||'2';
+        return spec.saying||'2';
 
-}
+    }
 
-return that;
+    return that;
 
 };
 
@@ -73,11 +73,13 @@ console.log(myMammal.get_name());
 
 var divView = {
 
-ele: '#divTip',
+    ele: '#divTip',
 
-tip: 'hello,underscore!',
+    tip: 'hello,underscore!',
 
-onClick: function () { $(this.ele).html(this.tip); }
+    onClick: function () { 
+        $(this.ele).html(this.tip); 
+    }
 
 };
 
@@ -176,9 +178,9 @@ even.fire('ddd');
 
 
 
-// var efn=new eventuality(divView);
+var efn=new eventuality(divView);
 
-// // console.log(efn);
+console.log(efn);
 
 
 // efn.on('aaab',function(ele){

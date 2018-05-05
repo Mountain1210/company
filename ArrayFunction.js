@@ -1,2 +1,2 @@
 var fn=x=>x*x;
-fn(6);
+console.log(fn(6));
